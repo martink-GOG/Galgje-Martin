@@ -7,29 +7,33 @@ public class Galgje {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String[] letterVanWoord = { "t", "o", "p" };
+		String[] letterVanWoord = { "t", "o", "p" ,"e","r"};
 		String[] gerradenLetters = new String[letterVanWoord.length];
 		ArrayList<String> geprobeerdenLetters = new ArrayList<>();
+		String feedback = "";
 		String poging;
 		int foutenPoging = 0;
-		boolean[] controle = new boolean[letterVanWoord.length];
+		int controle = 0;
 
 		for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
 			gerradenLetters[idx] = "*";
-			controle[idx] = false;
+
 		}
 
 		do {
-
+//usser in put
 			do {
 				System.out.println("je hebt " + foutenPoging + " fouten");
 				System.out.println("vul in een letter");
 				poging = sc.next();
+
 				if (geprobeerdenLetters.contains(poging)) {
 					foutenPoging = foutenPoging + 1;
 				}
-			} while (geprobeerdenLetters.contains(poging));
+				
+			} while (geprobeerdenLetters.contains(poging) && foutenPoging < 10);
 			geprobeerdenLetters.add(poging);
+			
 //		for (int idx = 0; idx < geprobeerdenLetters.length; idx = idx + 1) {
 //			if(geprobeerdenLetters[idx].equals(poging)) {
 //				foutenPoging = foutenPoging+1;
@@ -44,6 +48,7 @@ public class Galgje {
 //				controle[idx] = true;}
 //			 
 //		 }else {foutenPoging = foutenPoging +1;}
+//			controllen of letter goed is
 			boolean zitLetterInWoord = false;
 			for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
 				if (letterVanWoord[idx].equals(poging)) {
@@ -54,17 +59,31 @@ public class Galgje {
 				for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
 					if (letterVanWoord[idx].equals(poging)) {
 						gerradenLetters[idx] = poging;
-						controle[idx] = true;
-
 					}
-
 				}
-
 			} else {
 				foutenPoging = foutenPoging + 1;
 			}
-
-			System.out.println(gerradenLetters[0] + gerradenLetters[1] + gerradenLetters[2]);
+//			winst controllen
+			for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
+				if (gerradenLetters[idx].equals(letterVanWoord[idx])) {
+					controle = controle + 1;
+				}	
+			}
+			
+			if(controle ==letterVanWoord.length) {
+				System.out.println("je hebt gewonnen");
+				foutenPoging =12;
+			}else {
+				controle =0;
+			}
+//			feedback
+			feedback="";
+			for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
+				feedback=feedback+ gerradenLetters[idx];
+			}
+			System.out.println(feedback);
+			
 		} while (foutenPoging < 10);
 		sc.close();
 
