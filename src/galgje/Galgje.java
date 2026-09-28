@@ -1,19 +1,31 @@
 package galgje;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Galgje {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String[] letterVanWoord = { "t", "o", "p" ,"e","r"};
+		Random num = new Random();
+//		String[] letterVanWoord = { "t", "o", "p" ,"e","r"};
+		String[] woorden={"top", "kaas","rood", "hoofd"};
+		String woord = woorden[num.nextInt(woorden.length)];
+		
+		String[] letterVanWoord = new String[woord.length()];
 		String[] gerradenLetters = new String[letterVanWoord.length];
 		ArrayList<String> geprobeerdenLetters = new ArrayList<>();
 		String feedback = "";
 		String poging;
 		int foutenPoging = 0;
 		int controle = 0;
+//		woord radom generation
+		
+		System.out.println(woord);
+		for(int idx = 0; idx < woord.length(); idx = idx + 1) {
+			letterVanWoord[idx] = Character.toString(woord.charAt(idx));
+		}
 
 		for (int idx = 0; idx < letterVanWoord.length; idx = idx + 1) {
 			gerradenLetters[idx] = "*";
