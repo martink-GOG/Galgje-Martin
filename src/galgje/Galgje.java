@@ -19,6 +19,16 @@ public class Galgje {
 		String poging;
 		int foutenPoging = 0;
 		int controle = 0;
+		String[] tekening= new String[8];
+    	tekening[0] =" ";
+    	tekening[1] =" ";
+    	tekening[2] =" ";
+    	tekening[3] =" ";
+    	tekening[4] =" ";
+    	tekening[5] =" ";
+    	tekening[6] ="  ";
+    	tekening[7] ="----------------";
+		
 //		woord radom generation
 //		for testing
 		System.out.println(woord);
@@ -34,6 +44,50 @@ public class Galgje {
 		do {
 //usser in put
 			do {
+				switch (foutenPoging) {
+	    		case 10:
+	    			tekening[5] ="   |	/\\";
+	    			break;
+	    		case 9:
+	    			tekening[5] ="   |	/";
+	    			break;
+	    		case 8:
+	    			tekening[4] ="   |    []";
+	    			break;
+	    		case 7:
+	    			tekening[3] ="   |   \\()/";
+	    			break;
+	    		case 6:
+	    			tekening[3] ="   |   \\()";
+	    			break;
+	    		case 5:
+	    			tekening[3] ="   |     ()";
+	    			break;
+	    		case 4:
+	    	    	tekening[1] ="   | /  |";
+	    	    	tekening[2] ="   |/   |";
+	    			break;
+	    		case 3:
+	    			tekening[0] ="   ________";
+	    			break;
+	    		case 2:
+	    	    	tekening[1] ="   | /";
+	    	    	tekening[2] ="   |/	";
+	    			break;
+	    		case 1:
+	    			tekening[1] ="   |";
+	    	    	tekening[2] ="   |";
+	    	    	tekening[3] ="   |";
+	    	    	tekening[4] ="   |";
+	    	    	tekening[5] ="   |";
+	    	    	tekening[6] ="   |";
+	    			break;
+	    			default:;}
+	    			for(int idx= 0;idx < tekening.length; idx++) {
+	    	    		System.out.println(tekening[idx]);
+	    			}
+				
+				
 				System.out.println("je hebt " + foutenPoging + " fouten");
 				System.out.println("vul in een letter");
 				poging = sc.next();
@@ -80,108 +134,7 @@ public class Galgje {
 				feedback = feedback + gerradenLetters[idx];
 			}
 			System.out.println(feedback);
-			switch (foutenPoging) {
-			case 10:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |   \\()/");
-				System.out.println("   |    []");
-				System.out.println("   |	/\\");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 9:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |   \\()/");
-				System.out.println("   |    []");
-				System.out.println("   |	/");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 8:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |   \\()/");
-				System.out.println("   |    []");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 7:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |   \\()/");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 6:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |   \\()");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 5:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |    ()");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 4:
-				System.out.println("   ________");
-				System.out.println("   | /  |");
-				System.out.println("   |/	|");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 3:
-				System.out.println("   ________");
-				System.out.println("   | /");
-				System.out.println("   |/");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 2:
-				System.out.println("   | /");
-				System.out.println("   |/");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			case 1:
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("   |");
-				System.out.println("----------------");
-				break;
-			default:
-				System.out.println("________________");
-			}
+			
 
 		} while (foutenPoging < 10);
 		sc.close();
