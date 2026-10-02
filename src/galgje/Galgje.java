@@ -9,7 +9,7 @@ public class Galgje {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random num = new Random();
-		String[] woorden = { "top", "kaas", "rood", "hoofd", "hoed", "glass" };
+		String[] woorden = { "top", "kaas", "rood", "hoofd", "hoed", "glass","bakker" };
 		String woord = woorden[num.nextInt(woorden.length)];
 
 		String[] letterVanWoord = new String[woord.length()];
@@ -42,8 +42,9 @@ public class Galgje {
 		}
 
 		do {
-//usser in put
+//user in put
 			do {
+//				tekenign van galgje om 
 				switch (foutenPoging) {
 	    		case 10:
 	    			tekening[5] ="   |	/\\";
@@ -61,7 +62,7 @@ public class Galgje {
 	    			tekening[3] ="   |   \\()";
 	    			break;
 	    		case 5:
-	    			tekening[3] ="   |     ()";
+	    			tekening[3] ="   |    ()";
 	    			break;
 	    		case 4:
 	    	    	tekening[1] ="   | /  |";
@@ -123,7 +124,7 @@ public class Galgje {
 			}
 
 			if (controle == letterVanWoord.length) {
-				System.out.println("je hebt gewonnen");
+				
 				foutenPoging = 12;
 			} else {
 				controle = 0;
@@ -137,6 +138,15 @@ public class Galgje {
 			
 
 		} while (foutenPoging < 10);
+		if(foutenPoging==12) {
+			System.out.println("je hebt gewonnen");
+		}else {
+			tekening[5] ="   |	/\\";
+			for(int idx= 0;idx < tekening.length; idx++) {
+	    		System.out.println(tekening[idx]);
+			}
+			System.out.println("je hebt verloren");
+		}
 		sc.close();
 
 	}
